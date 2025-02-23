@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.API", "AppointmentBooking.API\AppointmentBooking.API.csproj", "{BC1F68BE-058B-4363-8026-EA6E9867C92C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Domain", "AppointmentBooking.Domain\AppointmentBooking.Domain.csproj", "{5874CFA8-5216-4D4D-9605-56F39BE825B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Infrastructure", "AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj", "{2D382B91-20C7-4DDB-8D34-9451E3933BAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Application", "AppointmentBooking.Application\AppointmentBooking.Application.csproj", "{218CA592-4984-47DD-A740-B5C9A0306D5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{BC1F68BE-058B-4363-8026-EA6E9867C92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC1F68BE-058B-4363-8026-EA6E9867C92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC1F68BE-058B-4363-8026-EA6E9867C92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5874CFA8-5216-4D4D-9605-56F39BE825B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5874CFA8-5216-4D4D-9605-56F39BE825B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5874CFA8-5216-4D4D-9605-56F39BE825B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5874CFA8-5216-4D4D-9605-56F39BE825B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D382B91-20C7-4DDB-8D34-9451E3933BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D382B91-20C7-4DDB-8D34-9451E3933BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D382B91-20C7-4DDB-8D34-9451E3933BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D382B91-20C7-4DDB-8D34-9451E3933BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218CA592-4984-47DD-A740-B5C9A0306D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218CA592-4984-47DD-A740-B5C9A0306D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218CA592-4984-47DD-A740-B5C9A0306D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218CA592-4984-47DD-A740-B5C9A0306D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
