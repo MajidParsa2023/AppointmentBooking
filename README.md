@@ -12,6 +12,7 @@ Before running the project, ensure you have the following installed:
 - **.NET SDK 8.0+** (for local execution using Visual Studio)
 - **PostgreSQL client** (such as pgAdmin or DBeaver for database inspection)
 - **Node.js & npm** (for running tests in `test-app`)
+- **Command-Line Interface (CMD, Terminal, or PowerShell) for executing API requests**
 
 ## Getting Started
 
@@ -36,25 +37,46 @@ For a containerized setup, follow these steps:
    - Start a PostgreSQL database preloaded with sample data.
    - Run the API on `http://localhost:3000`.
 
-3. Verify that the API is running:
-   ```sh
-   curl -X POST http://localhost:3000/calendar/query -H "Content-Type: application/json" -d '{
-       "date": "2024-05-03",
-       "products": ["SolarPanels", "Heatpumps"],
-       "language": "German",
-       "rating": "Gold"
-   }'
-   ```
+3. Verify that the API is running.
+   - **For Linux/macOS users (Terminal):**
+     ```sh
+     curl -X POST http://localhost:3000/calendar/query -H "Content-Type: application/json" -d '{
+         "date": "2024-05-03",
+         "products": ["SolarPanels", "Heatpumps"],
+         "language": "German",
+         "rating": "Gold"
+     }'
+     ```
+   - **For Windows CMD users:**
+     ```cmd
+     curl -X POST http://localhost:3000/calendar/query -H "Content-Type: application/json" -d "{ \"date\": \"2024-05-03\", \"products\": [\"SolarPanels\", \"Heatpumps\"], \"language\": \"German\", \"rating\": \"Gold\" }"
+     ```
+   - **For Windows PowerShell users:**
+     ```powershell
+     $body = @{
+         date = "2024-05-03"
+         products = @("SolarPanels", "Heatpumps")
+         language = "German"
+         rating = "Gold"
+     } | ConvertTo-Json -Depth 10
+
+     Invoke-RestMethod -Uri "http://localhost:3000/calendar/query" -Method Post -Headers @{ "Content-Type" = "application/json" } -Body $body
+     ```
+   
    Expected response:
    ```json
    [
        {
            "available_count": 1,
-           "start_date": "2024-05-03T10:30:00.00Z"
+           "start_date": "2024-05-03T10:30:00.000Z"
        },
        {
-           "available_count": 2,
-           "start_date": "2024-05-03T12:00:00.00Z"
+           "available_count": 1,
+           "start_date": "2024-05-03T11:00:00.000Z"
+       },
+       {
+           "available_count": 1,
+           "start_date": "2024-05-03T11:30:00.000Z"
        }
    ]
    ```
@@ -89,6 +111,7 @@ docker volume prune -f
 - **Database Connection:** The API connects to the PostgreSQL database inside Docker. If needed, you can access the database using tools like **pgAdmin** or **DBeaver**.
 - **Custom Data:** The test database supports adding additional sample data to validate different scenarios.
 - **Test Environment:** The `test-app` directory contains a Node.js script (`test.js`) that executes API requests and validates expected responses.
+- **Windows Users:** If using CMD, use the `curl` format for Windows as specified above. If using PowerShell, prefer `Invoke-RestMethod`.
 
 ## Conclusion
 By following this guide, you will be able to set up, run, and test the appointment booking API seamlessly. The system is designed to handle dynamic appointment scheduling and has been tested for various edge cases. If needed, additional data can be inserted into the database for further validation.
