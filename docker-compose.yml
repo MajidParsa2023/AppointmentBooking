@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: appointment-booking-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword123!
+      POSTGRES_DB: coding-challenge
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - booking-network
+    volumes:
+          - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+  api:
+    build: .
+    container_name: appointment-booking-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__AppointmentBookingDBContext=Host=db;Port=5432;Database=coding-challenge;Username=postgres;Password=mypassword123!;SearchPath=public      
+    networks:
+      - booking-network
+
+networks:
+  booking-network:
+    driver: bridge
